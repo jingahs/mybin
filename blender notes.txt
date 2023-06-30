@@ -1,0 +1,61 @@
+Linking Models (instead of appending them):
+	-Link them, then go to Object (on the top left, next to Add) > Relations > Make Library Override. THIS USED TO BE PROXY
+	-If the model directories change, go to File > External Data > Find Missing Files
+	-Overrides - to use the built in model options:
+		-You will notice this is needed when trying to modify things and it says can't change library stuff
+		-Click the paper clip looking thing. Shift click to make it an override, clicking seems to make a copy in the current .blend file. Sometimes one may work over the other.
+			-Can be found in Object Data Properties, next to the name of the Mesh Data (pretty much the top of the menu)
+			-Can be found near the Slots in Shading. If the menus don't show in the Shading window, try zooming out/scrolling up.
+			-Can be found in Material Properties. Pretty much changes the same stuff as in Shading
+Proxies:
+	-They are good for using low poly models in workspace (less lag), but rendering high poly ones in the end.
+	-Can be done by creating a duplicate model, then OPTIONALLY using a modifier (the blue wrench icon) to reduce polys, such as Decimate > Un-Subdivide
+	-Ensure both models are on the same position (x,y,z). Inside of each other.
+	-Put both models into a collection, hide the original Object from viewport (the tv screen icon) and hide the proxy from viewport (the camera icon)
+	-Add > Collection Instance > Proxy
+
+Troubleshooting:
+	-Can't move model: they might be locked in place. Select the model, press N to open up the model menu (to the left of the Scene Collection) and go to Item > unlock the stuff.
+	-Using alternate costumes/options for model:
+		-Select the model
+			-Press N, some models may have a menu for them
+			-Go to Shading, then play around with the Slots. There may be some sliders to play around with to toggle opacity of a texture.
+	-Model body properties, such as face, body size, etc:
+		-Go to Object Data Properties (the green triangle with squares at each corner)
+			-Look at Shape Keys. Slide some around to see what they do.
+
+Weight Painting:
+	-Select the model, then go to Weight Paint.
+		-Select a  Vertex Group (found in Object Data Properties) to display the group's weight paint.
+
+Pose Libraries: (sort of deprecated)
+	-Very useful when using models that use the same bones, as they can be reused
+	-After posing, go to Object Data Properties (green running guy) > Pose Library.
+		-Name the set of poses in the black text bar.
+		-Select the desired bones, then add them with the + icon. Remember to name them properly (ex: fist.L)
+		-Ensure that the Fake User (shield icon next to black text bar) is checked, otherwise it won't be saved if nothing is using the pose
+		-Press Apply Pose Library Pose (magnifying glass under -) to apply pose
+	-Not all poses will apply properly if meshes are differently sized
+
+Shapekeys:
+	-Purpled out keys can be editted by right clicking and modifying/deleting the drivers
+
+Clothes Physics:
+	-Make use of vertex groups to select areas that shouldn't have physics. This way clothes won't fall to the ground.
+		-Go to Shape > Pin Group and select that vertex group.
+	-Play around with Collisions to get things right.
+		-To make other objects collide with clothing, go to their respective Physics Properties tab and slect Collision.
+			-If the body is the entire model, you can try to collide with pants instead.
+
+Headswaps:
+	-If models explode upon join / transform, they probably have some vertex issues. Try fixing scale, merging by distance, etc.
+	-Models change to match their parents when joined, so if there is something like solidify on the parent, the joining model will get it too
+
+Diffeomorphic addon not transferring shapekeys? Try to UNHIDE anything in edit mode.
+	-Errors:
+		- ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape
+		- IndexError: arrays used as indices must be of integer (or boolean) type
+
+Want to select the vertices/faces from UVs? Press the double arrow icon on the top left of the UV editing tab to link selections
+
+Colors not what you want? Compare EVERYTHING in render settings. Contrast is a big factor for Genshins
