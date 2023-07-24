@@ -149,3 +149,136 @@ bone = arm.pose.bones.get("pelvis")
 bone.lock_location[0] = False
 bone.lock_location[1] = False
 bone.lock_location[2] = False
+
+#Breath
+bone = arm.pose.bones.get("chest.twk")
+if "Breath Control 1" in bone.constraints:
+    bone.constraints.remove(bone.constraints.get("Breath Control 1"))
+constraint = bone.constraints.new("TRANSFORM")
+constraint.target = arm
+constraint.name = "Breath Control 1"
+constraint.subtarget = "Breath"
+constraint.influence = .8
+constraint.use_motion_extrapolate = True
+constraint.owner_space = "LOCAL"
+constraint.target_space = "LOCAL"
+constraint.from_min_y = -.5
+constraint.from_max_y = .5
+constraint.map_to = "SCALE"
+constraint.map_to_x_from = "Y"
+constraint.map_to_y_from = "Y"
+constraint.map_to_z_from = "Y"
+constraint.to_min_x_scale = 0
+constraint.to_max_x_scale = 2
+constraint.to_min_y_scale = 0
+constraint.to_max_y_scale = 2
+constraint.to_min_z_scale = 0
+constraint.to_max_z_scale = 2
+
+if "Breath Control 2" in bone.constraints:
+    bone.constraints.remove(bone.constraints.get("Breath Control 2"))
+constraint = bone.constraints.new("TRANSFORM")
+constraint.target = arm
+constraint.name = "Breath Control 2"
+constraint.subtarget = "Breath"
+constraint.influence = .2
+constraint.use_motion_extrapolate = True
+constraint.owner_space = "LOCAL"
+constraint.target_space = "LOCAL"
+constraint.from_min_x = -1
+constraint.from_max_x = 1
+constraint.from_min_y = -1
+constraint.from_max_y = 1
+constraint.map_to_x_from = "X"
+constraint.map_to_y_from = "Y"
+constraint.map_to_z_from = "Y"
+constraint.to_min_x = -1
+constraint.to_max_x = 1
+constraint.to_min_y = -1
+constraint.to_max_y = 1
+constraint.to_min_z = -1
+constraint.to_max_z = 1
+constraint.mix_mode = "ADD"
+
+bone = arm.pose.bones.get("spine-1.twk")
+if "Breath Control 1" in bone.constraints:
+    bone.constraints.remove(bone.constraints.get("Breath Control 1"))
+constraint = bone.constraints.new("TRANSFORM")
+constraint.target = arm
+constraint.name = "Breath Control 1"
+constraint.subtarget = "Breath"
+constraint.influence = .8
+constraint.use_motion_extrapolate = True
+constraint.owner_space = "LOCAL"
+constraint.target_space = "LOCAL"
+constraint.from_min_y = -.5
+constraint.from_max_y = .5
+constraint.map_to = "SCALE"
+constraint.map_to_x_from = "Y"
+constraint.map_to_y_from = "Y"
+constraint.map_to_z_from = "Y"
+constraint.to_min_x_scale = 0
+constraint.to_max_x_scale = 2
+constraint.to_min_y_scale = 0
+constraint.to_max_y_scale = 2
+constraint.to_min_z_scale = 0
+constraint.to_max_z_scale = 2
+
+if "Breath Control 2" in bone.constraints:
+    bone.constraints.remove(bone.constraints.get("Breath Control 2"))
+constraint = bone.constraints.new("TRANSFORM")
+constraint.target = arm
+constraint.name = "Breath Control 2"
+constraint.subtarget = "Breath"
+constraint.influence = .3
+constraint.use_motion_extrapolate = True
+constraint.owner_space = "LOCAL"
+constraint.target_space = "LOCAL"
+constraint.from_min_x = -1
+constraint.from_max_x = 1
+constraint.from_min_y = -1
+constraint.from_max_y = 1
+constraint.from_min_z = -1
+constraint.from_max_z = 1
+constraint.to_min_x = -1
+constraint.to_max_x = 1
+constraint.to_min_y = -1
+constraint.to_max_y = 1
+constraint.to_min_z = -1
+constraint.to_max_z = 1
+constraint.mix_mode = "ADD"
+
+bone = arm.pose.bones.get("spine.twk")
+if "Breath Control 1" in bone.constraints:
+    bone.constraints.remove(bone.constraints.get("Breath Control 1"))
+constraint = bone.constraints.new("TRANSFORM")
+constraint.target = arm
+constraint.name = "Breath Control 1"
+constraint.subtarget = "Breath"
+constraint.influence = 1
+constraint.use_motion_extrapolate = True
+constraint.owner_space = "LOCAL"
+constraint.target_space = "LOCAL"
+constraint.from_min_y = -.5
+constraint.from_max_y = .5
+constraint.map_to = "SCALE"
+constraint.map_to_x_from = "Y"
+constraint.map_to_y_from = "Y"
+constraint.map_to_z_from = "Y"
+constraint.to_min_x_scale = 1
+constraint.to_max_x_scale = 1
+constraint.to_min_y_scale = 1
+constraint.to_max_y_scale = 1
+constraint.to_min_z_scale = 1
+constraint.to_max_z_scale = 1
+
+bone = arm.pose.bones.get("Breath")
+if "Limit Location" in bone.constraints:
+    bone.constraints.remove(bone.constraints.get("Limit Location"))
+constraint = bone.constraints.new("LIMIT_LOCATION")
+constraint.min_y = -0.05
+constraint.max_y = 0.05
+constraint.use_min_y = True
+constraint.use_max_y = True
+constraint.owner_space = "LOCAL"
+bone.lock_location[1] = False
